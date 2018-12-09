@@ -1,11 +1,11 @@
+@import '~antd/dist/antd.css';
+
 .x-app {
   text-align: center;
 }
 
 .x-header {
   align-items: center;
-  background-color: #282c34;
-  color: white;
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 1vmin);
@@ -13,16 +13,15 @@
   min-height: 10vh;
 }
 
+.x-header h1 {
+  color: white
+}
+
 .x-content {
-  margin: 5px auto;
+  padding: 0 50px;
+  margin-top: 10px;
 }
 
-.x-search {
-  margin-bottom: 30px;
-}
-
-.x-search input {
-  font-size: 30px;
-  padding: 10px;
-  width: 100%;
+.x-search-field {
+  margin-bottom: 20px;
 }
