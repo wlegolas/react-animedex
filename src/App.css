@@ -3,12 +3,26 @@
 }
 
 .x-header {
+  align-items: center;
   background-color: #282c34;
-  min-height: 10vh;
+  color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  font-size: calc(10px + 1vmin);
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-height: 10vh;
+}
+
+.x-content {
+  margin: 5px auto;
+}
+
+.x-search {
+  margin-bottom: 30px;
+}
+
+.x-search input {
+  font-size: 30px;
+  padding: 10px;
+  width: 100%;
 }

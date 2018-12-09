@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AnimeList from './anime-list';
 import './App.css';
 
 class App extends Component {
@@ -8,6 +9,7 @@ class App extends Component {
         <header className="x-header">
           <h1>Animedex - An easy way to discovery new animes</h1>
         </header>
+        <AnimeList />
       </div>
     );
   }
