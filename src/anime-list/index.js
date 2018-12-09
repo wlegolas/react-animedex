@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
+import { getAnimes } from '../services/animeService';
 
 class AnimeList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      animes: [
-        {
-          id: 1,
-          name: 'Naruto',
-        },
-      ],
+      animes: {
+        data: []
+      }
     };
+  }
+
+  componentDidMount() {
+    getAnimes().then(animes => {
+      this.setState({ animes })
+    });
   }
 
   handleSearch = event => {
@@ -29,10 +33,11 @@ class AnimeList extends Component {
         </div>
         <div className="x-anime-list">
           <ul>
-            {this.state.animes.map(anime => (
-              <li key={anime.id}>{anime.name}</li>
+            {this.state.animes.data.map(anime => (
+              <li key={anime.id}>{anime.title}</li>
             ))}
           </ul>
+          <p>Total items: {this.state.animes.totalItems}</p>
         </div>
       </div>
     );
