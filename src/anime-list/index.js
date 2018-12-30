@@ -1,6 +1,6 @@
 import { Card, Col, Input, Pagination, Row } from 'antd';
 import React, { Component } from 'react';
-import { getAnimes } from '../services/animeService';
+import { getAnimes } from '../services/anime';
 
 class AnimeList extends Component {
   constructor(props) {
