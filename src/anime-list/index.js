@@ -1,6 +1,6 @@
 import { Card, Col, Input, Pagination, Row } from 'antd';
 import React, { Component } from 'react';
-import { getAnimes } from 'services/anime';
+import { getAnimes, searchAnimes } from 'services/anime';
 
 class AnimeList extends Component {
   constructor(props) {
@@ -13,14 +13,16 @@ class AnimeList extends Component {
   }
 
   componentDidMount() {
-    getAnimes().then(animes => {
-      this.setState({ animes });
-    });
+    getAnimes().then(this.onRequestAnimesSuccess);
   }
 
-  handleSearch = event => {
-    console.log('Test');
+  handleSearch = value => {
+    searchAnimes(value).then(this.onRequestAnimesSuccess);
   };
+
+  onRequestAnimesSuccess = animes => {
+    this.setState({ animes });
+  }
 
   render() {
     return (
@@ -37,10 +39,34 @@ class AnimeList extends Component {
         <Col span={24}>
           <Row gutter={16} className="x-anime-list">
             {this.state.animes.data.map(anime => (
-              <Col key={anime.id} span={8} className="x-anime-list-item">
-                <Card type="inner" title={anime.title}>
-                  <label>Created at: </label>
-                  <span>{anime.createdAt}</span>
+              <Col key={anime.id} span={24} className="x-anime-list-item">
+                <Card type="inner" className="x-anime-container">
+                  <Row gutter={0} type="flex" justify="center" align="top">
+                    <Col xs={24} lg={8}>
+                      <img src={anime.image} alt={`Anime ${anime.title} poster`} />
+                    </Col>
+                    <Col xs={24} lg={16}>
+                      <div className="x-anime-details">
+                        <h2>Anime details</h2>
+                        <div className="x-anime-info">
+                          <label>Title: </label>
+                          <span>{anime.title}</span>
+                        </div>
+                        <div className="x-anime-info">
+                          <label>Status: </label>
+                          <span>{anime.status}</span>
+                        </div>
+                        <div className="x-anime-info">
+                          <label>Created at: </label>
+                          <span>{anime.createdAt}</span>
+                        </div>
+                        <div className="x-anime-info">
+                          <label>Synopsis: </label>
+                          <span>{anime.synopsis}</span>
+                        </div>
+                      </div>
+                    </Col>
+                  </Row>
                 </Card>
               </Col>
             ))}

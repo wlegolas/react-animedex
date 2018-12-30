@@ -1,5 +1,12 @@
 @import '~antd/dist/antd.css';
 
+body {
+  margin: 0;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
 .x-app {
   text-align: center;
 }
@@ -29,6 +36,12 @@
 .x-anime-list {
   margin-bottom: 10px;
 }
-.x-anime-list-item {
+
+.x-anime-container {
   margin-bottom: 16px;
+}
+
+.x-anime-info label {
+  color: #1abc9c;
+  font-weight: bold;
 }

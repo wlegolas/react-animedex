@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const request = axios.create({
   baseURL: 'https://kitsu.io/api/edge/',
-  timeout: 1000
+  timeout: 30000
 });
 
 const isSuccessfully = status => status >= 200 && status < 300;
@@ -24,8 +24,8 @@ const onRequestFailure = error => {
   );
 };
 
-export const get = async (urlPath) => {
-  return request.get(urlPath)
+export const get = async (urlPath, configs) => {
+  return request.get(urlPath, configs)
     .then(onRequestComplete)
     .catch(onRequestFailure);
 }
