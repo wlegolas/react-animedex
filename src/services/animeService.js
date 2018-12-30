@@ -1,6 +1,4 @@
-const baseUrl = 'https://kitsu.io/api/edge/';
-
-const combineUrl = urlPath => `${baseUrl}/${urlPath}`;
+import { get } from './base';
 
 const convertResponseToPaginationResult = response => ({
   data: response.data.map(data => convertResponseToAnime(data)),
@@ -21,24 +19,6 @@ const convertResponseToAnime = ({ id, attributes }) => ({
   image: attributes.posterImage.small
 });
 
-const onFinishRequest = response => {
-  if (response.ok) {
-    return response.json();
-  }
-
-  throw new Error(
-    `The server returns the status code: ${response.statusText}`
-  );
-};
-
-export const get = async (url) => {
-  const options = { method: 'GET', mode: 'cors', cache: 'default' };
-
-  return fetch(url, options).then(onFinishRequest);
-}
-
-export function getAnimes() {
-  const url = combineUrl('anime');
-
-  return get(url).then(convertResponseToPaginationResult);
+export async function getAnimes() {
+  return get('anime').then(convertResponseToPaginationResult);
 }
