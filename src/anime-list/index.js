@@ -1,6 +1,6 @@
 import { Card, Col, Input, Pagination, Row } from 'antd';
 import React, { Component } from 'react';
-import { getAnimes } from '../services/anime';
+import { getAnimes } from 'services/anime';
 
 class AnimeList extends Component {
   constructor(props) {
@@ -37,8 +37,8 @@ class AnimeList extends Component {
         <Col span={24}>
           <Row gutter={16} className="x-anime-list">
             {this.state.animes.data.map(anime => (
-              <Col span={8} className="x-anime-list-item">
-                <Card key={anime.id} type="inner" title={anime.title}>
+              <Col key={anime.id} span={8} className="x-anime-list-item">
+                <Card type="inner" title={anime.title}>
                   <label>Created at: </label>
                   <span>{anime.createdAt}</span>
                 </Card>
