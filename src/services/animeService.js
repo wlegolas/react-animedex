@@ -1,44 +1,44 @@
-function convertResponseToPaginationResult(response) {
-  return {
-    data: response.data.map(data => convertResponseToAnime(data)),
-    links: response.links,
-    totalItems: response.meta.count
-  };
-}
+const baseUrl = 'https://kitsu.io/api/edge/';
 
-function convertResponseToAnime(response) {
-  const attributes = response.attributes;
+const combineUrl = urlPath => `${baseUrl}/${urlPath}`;
 
-  return {
-    id: response.id,
-    createdAt: attributes.createdAt,
-    updatedAt: attributes.updatedAt,
-    synopsis: attributes.synopsis,
-    title: attributes.canonicalTitle,
-    startDate: attributes.startDate,
-    endDate: attributes.endDate,
-    ageRatingGuide: attributes.ageRatingGuide,
-    status: attributes.status,
-    image: attributes.posterImage.small
-  };
+const convertResponseToPaginationResult = response => ({
+  data: response.data.map(data => convertResponseToAnime(data)),
+  links: response.links,
+  totalItems: response.meta.count
+});
+
+const convertResponseToAnime = ({ id, attributes }) => ({
+  id: id,
+  createdAt: attributes.createdAt,
+  updatedAt: attributes.updatedAt,
+  synopsis: attributes.synopsis,
+  title: attributes.canonicalTitle,
+  startDate: attributes.startDate,
+  endDate: attributes.endDate,
+  ageRatingGuide: attributes.ageRatingGuide,
+  status: attributes.status,
+  image: attributes.posterImage.small
+});
+
+const onFinishRequest = response => {
+  if (response.ok) {
+    return response.json();
+  }
+
+  throw new Error(
+    `The server returns the status code: ${response.statusText}`
+  );
 };
 
-function get(url) {
+export const get = async (url) => {
   const options = { method: 'GET', mode: 'cors', cache: 'default' };
 
-  return fetch(url, options).then(response => {
-    if (response.ok) {
-      return response.json();
-    }
-
-    throw new Error(
-      `The server returns the status code: ${response.statusText}`
-    );
-  });
+  return fetch(url, options).then(onFinishRequest);
 }
 
 export function getAnimes() {
-  const url = 'https://kitsu.io/api/edge/anime';
+  const url = combineUrl('anime');
 
   return get(url).then(convertResponseToPaginationResult);
 }
