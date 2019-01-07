@@ -1,0 +1,14 @@
+version: '3.5'
+services:
+  web:
+    container_name: react-animedex
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '8080:80'
+    environment:
+      - NODE_ENV=development
