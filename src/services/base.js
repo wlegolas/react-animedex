@@ -5,20 +5,11 @@ const request = axios.create({
   timeout: 30000
 });
 
-const isSuccessfully = status => status >= 200 && status < 300;
-
 const onRequestComplete = response => {
-  if (isSuccessfully(response.status)) {
-    return response.data;
-  }
-
-  throw new Error(
-    `The server returns the status code: ${response.statusText}`
-  );
+  return response.data;
 };
 
 const onRequestFailure = error => {
-  console.error(error);
   throw new Error(
     `The server returns the status code: ${error.response.status}`
   );
