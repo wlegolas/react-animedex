@@ -38,10 +38,16 @@ body {
 }
 
 .x-anime-container {
-  margin-bottom: 16px;
+  background-color: #97c7e2;
+  padding: 0;
+  border-radius: 1.3em;
 }
 
 .x-anime-info label {
-  color: #1abc9c;
+  color: #282b2a;
   font-weight: bold;
+}
+
+.x-anime-list-item {
+  margin-bottom: 16px;
 }

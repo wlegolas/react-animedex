@@ -37,7 +37,7 @@ class AnimeList extends Component {
           </div>
         </Col>
         <Col span={24}>
-          <Row gutter={16} className="x-anime-list">
+          <Row className="x-anime-list">
             {this.state.animes.data.map(anime => (
               <Col key={anime.get('id')} span={24} className="x-anime-list-item">
                 <Card type="inner" className="x-anime-container">
