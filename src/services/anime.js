@@ -20,16 +20,16 @@ const convertResponseToAnime = ({ id, attributes }) => Anime({
   image: attributes.posterImage.small
 });
 
-export const getAnimes = async () => get('anime').then(convertResponseToPaginationResult);
+export const getAnimes = async configs => get('anime', configs).then(convertResponseToPaginationResult);
 
 export const searchAnimes = async name => {
-  const config = {
+  const configs = {
     params: {
       'filter[text]': name
     }
   };
 
-  return get('anime', config).then(convertResponseToPaginationResult);
+  return getAnimes(configs);
 };
 
 export default { getAnimes, searchAnimes };
