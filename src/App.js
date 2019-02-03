@@ -1,6 +1,6 @@
 import { Layout } from 'antd';
+import AnimeList from 'components/anime-list';
 import React, { Component } from 'react';
-import AnimeList from './anime-list';
 import './App.css';
 
 const { Header, Content } = Layout;
