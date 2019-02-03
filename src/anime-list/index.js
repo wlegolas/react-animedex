@@ -17,9 +17,7 @@ class AnimeList extends Component {
   }
 
   handleSearch = value => {
-    if (value && value.length > 0) {
-      searchAnimes(value).then(this.onRequestAnimesSuccess);
-    }
+    searchAnimes(value).then(this.onRequestAnimesSuccess);
   };
 
   onRequestAnimesSuccess = animes => {
