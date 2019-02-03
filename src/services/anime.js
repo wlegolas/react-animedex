@@ -1,3 +1,4 @@
+import Anime from 'models/Anime';
 import { get } from './base';
 
 const convertResponseToPaginationResult = response => ({
@@ -6,7 +7,7 @@ const convertResponseToPaginationResult = response => ({
   totalItems: response.meta.count
 });
 
-const convertResponseToAnime = ({ id, attributes }) => ({
+const convertResponseToAnime = ({ id, attributes }) => Anime({
   id: id,
   createdAt: attributes.createdAt,
   updatedAt: attributes.updatedAt,
