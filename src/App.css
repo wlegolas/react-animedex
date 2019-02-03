@@ -41,6 +41,15 @@ body {
   border: 1px solid #ffe58f;
   background-color: #fffbe6;
   border-radius: 1.3em;
+  padding: 0;
+}
+
+.x-anime-container img {
+  float: left;
+  margin: 0;
+  margin-right: 20px;
+  width: 100%;
+  max-width: 230px;
 }
 
 .x-anime-info label {
@@ -50,4 +59,15 @@ body {
 
 .x-anime-list-item {
   margin-bottom: 16px;
+}
+
+.x-anime-list-pagination {
+  text-align: center;
+  vertical-align: middle;
+}
+
+@media (min-width: 576px) {
+  .x-anime-container {
+    padding: 16px 11px;
+  }
 }

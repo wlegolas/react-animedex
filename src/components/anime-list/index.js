@@ -43,11 +43,9 @@ class AnimeList extends Component {
             {this.state.animes.data.map(anime => (
               <Col key={anime.get('id')} span={24} className="x-anime-list-item">
                 <Card type="inner" className="x-anime-container">
-                  <Row gutter={0} type="flex" justify="center" align="top">
-                    <Col xs={24} lg={8}>
+                  <Row gutter={0} type="flex" justify="left" align="top">
+                    <Col xs={24} lg={24}>
                       <img src={anime.get('image')} alt={`Anime ${anime.get('title')} poster`} />
-                    </Col>
-                    <Col xs={24} lg={16}>
                       <div className="x-anime-details">
                         <h2>Anime details</h2>
                         <div className="x-anime-info">
@@ -74,7 +72,7 @@ class AnimeList extends Component {
             ))}
           </Row>
         </Col>
-        <Col span={8} offset={8}>
+        <Col xs={24} lg={24} className="x-anime-list-pagination">
           <Pagination defaultCurrent={1} total={50} />
         </Col>
       </Row>
