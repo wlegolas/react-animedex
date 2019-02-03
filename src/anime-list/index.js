@@ -32,6 +32,8 @@ class AnimeList extends Component {
             <Input.Search
               className="x-search-field"
               placeholder="Search your favorite anime"
+              enterButton="Search"
+              size="large"
               onSearch={this.handleSearch}
             />
           </div>

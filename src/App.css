@@ -38,13 +38,13 @@ body {
 }
 
 .x-anime-container {
-  background-color: #97c7e2;
-  padding: 0;
+  border: 1px solid #ffe58f;
+  background-color: #fffbe6;
   border-radius: 1.3em;
 }
 
 .x-anime-info label {
-  color: #282b2a;
+  color: rgba(0,0,0,0.65);
   font-weight: bold;
 }
 
