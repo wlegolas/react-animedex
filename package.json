@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "http://localhost:8080",
   "dependencies": {
+    "@material-ui/core": "^3.9.2",
     "antd": "^3.13.0",
     "axios": "^0.18.0",
     "dotenv": "^7.0.0",
