@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 1rem;
   line-height: 1.5;
 }
@@ -21,16 +21,12 @@ body {
 }
 
 .x-header h1 {
-  color: white
+  color: white;
 }
 
 .x-content {
   padding: 0 50px;
   margin-top: 10px;
-}
-
-.x-search-field {
-  margin-bottom: 20px;
 }
 
 .x-anime-list {
@@ -53,7 +49,7 @@ body {
 }
 
 .x-anime-info label {
-  color: rgba(0,0,0,0.65);
+  color: rgba(0, 0, 0, 0.65);
   font-weight: bold;
 }
 
@@ -77,4 +73,10 @@ body {
 
 .x-anime-header--title {
   flex-grow: 1;
+}
+
+.x-anime-grid--row {
+  color: rgba(0, 0, 0, 0.54);
+  padding: 16px;
+  text-align: center;
 }
