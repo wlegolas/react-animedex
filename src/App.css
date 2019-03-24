@@ -71,3 +71,10 @@ body {
     padding: 16px 11px;
   }
 }
+.x-anime-header {
+  flex-grow: 1;
+}
+
+.x-anime-header--title {
+  flex-grow: 1;
+}
